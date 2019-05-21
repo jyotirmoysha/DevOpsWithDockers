@@ -1,0 +1,46 @@
+version: '3'
+services: 
+  cora-mssql:
+    image: "cora-mssql"
+    ports:
+      - "1433:1433"
+#    volumes:
+#      - mssql:/var/opt/mssql    
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: "B@TMAN206"
+
+  cora-livespread:
+    image: "cora-livespread"
+    depends_on:
+      - cora-mssql
+    ports:
+      - "8080:8080"
+    volumes:
+      - /home/rage/LiveSpread_V3_Artefacts/devops/livespread-docker/livespread/files/input.properties:/usr/local/tomcat/webapps/input.properties
+      - /home/rage/LiveSpread_V3_Artefacts/devops/LIVESPREAD-FS:/opt/jboss/LIVESPREAD-FS
+  cora-platform:
+    image: "cora-platform"
+    depends_on:
+      - cora-livespread
+    ports:
+      - "8081:8081"
+      - "9990:9990"
+      - "9993:9993"      
+    volumes:
+      - /home/rage/LiveSpread_V3_Artefacts/devops/rage-docker/files/standalone-full.xml:/opt/jboss/wildfly/standalone/configuration/standalone-full.xml
+      - /home/rage/LiveSpread_V3_Artefacts/devops/extractions/Parser_Scripts:/opt/jboss/Parser_Scripts
+      - /home/rage/LiveSpread_V3_Artefacts/devops/extractions/Processing_Package/LS_File_Conversion:/opt/jboss/LS_File_Conversion
+      - /home/rage/LiveSpread_V3_Artefacts/devops/extractions/Processing_Package/FileConversionService:/opt/jboss/FileConversionService
+      - /home/rage/LiveSpread_V3_Artefacts/devops/extractions:/opt/jboss/setenv.sh
+      - /home/rage/LiveSpread_V3_Artefacts/devops/extractions/ProcessConfig.txt:/opt/jboss/ProcessConfig.txt
+#      - /rage/devops/Deploy:/opt/jboss/wildfly/modules/system/layers/base/rage/main/rage/Deploy
+##     - /rage/devops/base/codec:/opt/jboss/wildfly/modules/system/layers/base/codec
+##     - /rage/devops/base/rage:/opt/jboss/wildfly/modules/system/layers/base/rage
+##     - /rage/devops/base/eoplugin:/opt/jboss/wildfly/modules/system/layers/base/eoplugin
+##     - /rage/devops/extractionscripts/certificate:/opt/jboss/wildfly/certificate
+##     - /rage/devops/extractionscripts/deployments:/opt/jboss/wildfly/standalone/deployments
+      - /home/rage/LiveSpread_V3_Artefacts/devops/LIVESPREAD-FS:/opt/jboss/LIVESPREAD-FS
+volumes:
+#  mssql:  
+  config-files:  

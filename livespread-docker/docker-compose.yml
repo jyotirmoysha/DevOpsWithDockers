@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  mssql:
+    image: "microsoft/mssql-server-linux:latest"
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql:/var/opt/mssql
+    environment:
+      ACCEPT_EULA: 'Y'
+      SA_PASSWORD: "B@TMAN206"
+  livespread:
+    image: "livespread:1.0"
+    ports:
+      - "8080:8080"
+  rage-platform:
+    image: "rage-process:1.0"
+    ports:
+      - "8081:8080"
+
+volumes:
+  mssql:  
