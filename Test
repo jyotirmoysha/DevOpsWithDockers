@@ -13,6 +13,11 @@ https://www.puttygen.com/download.php?val=4
 https://aws.amazon.com/getting-started/projects/setup-jenkins-build-server/
 
 ---------------------------------------------------
+http://18.223.97.203:8080/
+
+/var/lib/jenkins/secrets/initialAdminPassword
+passowrd on aws: 7a4bccdd18ef4599bff458d2b3ef5571
+---------------------------------------------------
 
 Steps to install Jenkins on Red hat:
 
