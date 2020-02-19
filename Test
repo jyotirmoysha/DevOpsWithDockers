@@ -11,3 +11,24 @@ https://www.youtube.com/watch?v=MmsoIcYrXJU
 https://stackoverflow.com/questions/3190667/convert-pem-to-ppk-file-format
 https://www.puttygen.com/download.php?val=4
 https://aws.amazon.com/getting-started/projects/setup-jenkins-build-server/
+
+---------------------------------------------------
+
+Steps to install Jenkins on Red hat:
+
+1. To ensure that your software packages are up to date on your instance,
+use the following command to perform a quick software update:
+ 
+ -> sudo yum update –y
+
+2. Add the Jenkins repo using the following command:
+->  sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+
+3. Import a key file from Jenkins-CI to enable installation from the package:
+->  sudo rpm --import https://pkg.jenkins.io/redhat/jenkins.io.key
+
+4. Install Jenkins:
+-> sudo yum install jenkins -y
+
+5. Start Jenkins as a service:
+-> sudo service jenkins start
