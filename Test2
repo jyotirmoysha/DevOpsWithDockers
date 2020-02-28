@@ -1,0 +1,50 @@
+Create CI/CD, push image to git hub, and run docker container in other VM
+
+youtube URL: https://www.youtube.com/watch?v=gdbA3vR2eDs
+
+/var/lib/jenkins/workspace/TestGit
+
+sudo systemctl start jenkins.service
+sudo systemctl status jenkins.service
+sudo systemctl stop jenkins.service
+
+https://github.com/javahometech/my-app
+
+---------------------------------------------------------------
+Install JRE and JAVA 8 on Centos
+
+https://www.digitalocean.com/community/tutorials/how-to-install-java-on-centos-and-fedora
+
+> sudo yum install java-1.8.0-openjdk
+> sudo yum install java-1.8.0-openjdk-devel
+
+-----------------------------------------------------------
+Maven from preinstalled wizard
+
+------------------------------
+git installed as : sudo yum install git
+
+----------------------------------
+-----------------------------------
+Docker Hub account:
+
+URL: https://hub.docker.com/
+Docker ID (Its uid) : jyotirmoydoc
+email: jyotirmoysarmah@outlook.com
+password: #Docker@123
+---------------------------------
+Install Docker and Docker-compose on centos 7
+URL: https://www.cyberciti.biz/faq/install-use-setup-docker-on-rhel7-centos7-linux/
+
+> sudo yum install docker
+Steps to remove older version and install latest after above steps:
+> sudo yum remove docker docker-common docker-selinux docker-engine
+> sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+> sudo yum install docker-ce
+> sudo systemctl enable docker.service
+
+
+DOcker-compose install:
+> sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+> 
+-----------------------------------
