@@ -37,3 +37,5 @@ use the following command to perform a quick software update:
 
 5. Start Jenkins as a service:
 -> sudo service jenkins start
+------------------------------------------------
+Spring Boot Example with Spring Security to have user login and security encryption, role, DB etc.
