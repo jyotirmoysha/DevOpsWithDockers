@@ -48,3 +48,17 @@ DOcker-compose install:
 > sudo curl -L "https://github.com/docker/compose/releases/download/1.25.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 > 
 -----------------------------------
+
+>> How to SSH from one Linux EC2 instance to another
+URL :https://www.youtube.com/watch?v=OwptfrdgzDA
+
+Step2: change the access rights of file to read mode only as 
+-> suppose on above the file name was as "AWSKeyPair"
+"chmod -R 400 AWSKeyPair"
+
+Step3: You can have access to other machine as below (use private Ip instead of public below for target machine):
+
+-> ssh -i AWSKeyPair ec2-user@172.31.9.228
+or -> ssh -i /home/ec2-user/AWSKeyPair ec2-user@172.31.9.228
+
+-----------------------------------------------------------------------------
